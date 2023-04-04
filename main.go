@@ -7,7 +7,6 @@ import (
 
 func main() {
 	server := core.NewServer()
-
 	_ = apis.NewHealthyApi("/", server)
 	server.Start()
 }

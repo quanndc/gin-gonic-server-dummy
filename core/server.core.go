@@ -1,6 +1,7 @@
 package core
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,6 +21,7 @@ func NewServer() *Server {
 
 func (server *Server) Start() error {
 	server.Gin.SetTrustedProxies(nil)
-	// fmt.Printf("Server started on port: " + server.Port )
+	server.Gin.Use(cors.Default())
+
 	return server.Gin.Run(":" + server.Port)
 }
